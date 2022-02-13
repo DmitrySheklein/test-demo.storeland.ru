@@ -1,0 +1,20 @@
+{
+  "overrides": [
+    {
+      "files": "src/js/*.js",
+      "options": {
+        "bracketSpacing": true,
+
+        "printWidth": 100,
+        "semi": true,
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["src/scss/**/*.scss", "src/scss/*.css"],
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
+}
