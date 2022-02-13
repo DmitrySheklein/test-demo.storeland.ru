@@ -1,10 +1,11 @@
-<!-- [html.htm, discount_data.htm, goods_list.htm, search.htm] -->
+<!-- [html.htm, discount_data.htm, goods_list.htm, search.htm, goods.htm] -->
 {% FOR @@goods_array_name %}
 <div class="item {% IF @@goods_array_name.MAX_REST_VALUE=0 && SETTINGS_GOODS_DONT_PUT_TO_CART_MORE_THAN_AVAILABLE %}empty{% ENDIF %}{% IF @@goods_array_name.COUNT_MODIFICATION > 1 %}_with-mod{% ENDIF %} @@if (inCatalog) {col-lg-3 col-md-4 col-sm-6 col-sms-6 col-smb-12}">
   <div class="item-inner" itemscope itemtype="https://schema.org/Product">
     @@if (inCatalog) {
-      <h6>hello</h6>
+      <h6>inCatalog</h6>
     }
+    <h5>test text 1</h5>
     <form action="{CART_ADD_GOODS_MODIFICATION_URL | url_amp}" method="post" class="product-form-{@@goods_array_name.MIN_PRICE_NOW_ID} goodsListForm">
       <input type="hidden" name="hash" value="{HASH}" />
       <input type="hidden" name="form[goods_from]" value="{@@goods_array_name.GOODS_FROM}" />
@@ -166,9 +167,9 @@
            <div class="empty" title="Нет в наличии" data-tooltip="Нет в наличии"><span>Нет в наличии</span></div>
          {% ELSE %}
            {% IF @@goods_array_name.COUNT_MODIFICATION > 1 %}
-             <!-- <a class="quickviewmod button" title="В корзину" data-tooltip="В корзину" rel="nofollow" href="{@@goods_array_name.URL_MIN_PRICE_NOW}"><i class="fal fa-shopping-cart" aria-hidden="true"></i><span>В корзину</span></a> -->
+             <a class="quickviewmod button" title="В корзину" data-tooltip="В корзину" rel="nofollow" href="{@@goods_array_name.URL_MIN_PRICE_NOW}"><i class="fal fa-shopping-cart" aria-hidden="true"></i><span>В корзину</span></a>
            {% ELSE %}                                     
-             <!-- <a class="add-cart" title="В корзину" data-tooltip="В корзину" rel="nofollow" href="{CART_ADD_GOODS_MODIFICATION_URL | url_amp}?hash={HASH | url_amp}&amp;form%5Bgoods_from%5D={@@goods_array_name.GOODS_FROM}&amp;form%5Bgoods_mod_id%5D={@@goods_array_name.MIN_PRICE_NOW_ID}"><i class="fal fa-shopping-cart" aria-hidden="true"></i><span>В корзину</span></a> -->
+             <a class="add-cart" title="В корзину" data-tooltip="В корзину" rel="nofollow" href="{CART_ADD_GOODS_MODIFICATION_URL | url_amp}?hash={HASH | url_amp}&amp;form%5Bgoods_from%5D={@@goods_array_name.GOODS_FROM}&amp;form%5Bgoods_mod_id%5D={@@goods_array_name.MIN_PRICE_NOW_ID}"><i class="fal fa-shopping-cart" aria-hidden="true"></i><span>В корзину</span></a>
              <a class="add-cart quick" title="Быстро оформить заказ" rel="nofollow" href="{CART_ADD_GOODS_MODIFICATION_URL | url_amp}?hash={HASH | url_amp}&amp;form%5Bgoods_from%5D={@@goods_array_name.GOODS_FROM}&amp;form%5Bgoods_mod_id%5D={@@goods_array_name.MIN_PRICE_NOW_ID}"><span>Купить в 1 клик</span></a>
            {% ENDIF %}
          {% ENDIF %}
